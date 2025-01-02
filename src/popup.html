@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/light-theme.css" id="theme-stylesheet">
+</head>
+<body class="light-theme">
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="../images/avocado.png" alt="EcomPulse Logo" class="logo-icon">
+                <h1>EcomPulse</h1>
+            </div>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+
+        <section class="price-history">
+            <h2 class="section-title">历史价格走势</h2>
+            <div class="price-info">
+                <div class="item-name"></div>
+                <div class="price-stats">
+                    <span class="lowest-price">历史最低: <span class="price"></span></span>
+                    <span class="lowest-date">最低日期: <span class="date"></span></span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-header">
+                    <select id="timeRange" class="time-range-select">
+                        <option value="7">近1周</option>
+                        <option value="30">近1个月</option>
+                        <option value="90">近3个月</option>
+                        <option value="180">近6个月</option>
+                        <option value="270">近9个月</option>
+                        <option value="365">近1年</option>
+                    </select>
+                </div>
+                <canvas id="priceChart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <script src="../node_modules/chart.js/dist/chart.js"></script>
+    <script src="scripts/themeManager.js"></script>
+    <script src="scripts/charts/priceCharts.js"></script>
+    <script src="scripts/popup.js"></script>
+</body>
+</html> 

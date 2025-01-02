@@ -1,0 +1,35 @@
+{
+    "manifest_version":3,
+    "name":"EcomPulse",
+    "version":"1.0.0",
+    "description":"Track and Display e-commerce product prices and reviews",
+    "icons":{
+        "16":"images/avocado.png",
+        "48":"images/avocado.png",
+        "128":"images/avocado.png"
+    },
+    "action":{
+        "default_popup":"src/popup.html",
+        "default_icon":"images/avocado.png"
+    },
+    "background":{
+        "service_worker":"background.js"
+    },
+    "permissions":["storage","activeTab"],
+    "host_permissions": [
+        "http://localhost:*/"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://cdn.jsdelivr.net;"
+    },
+    "commands":{
+        "_execute_action":{
+            "suggested_key":{
+                "default":"Ctrl+O",
+                "mac":"Command+O"
+            },
+            "description":"Open the EcomPulse Extension"
+        }
+    }
+
+}

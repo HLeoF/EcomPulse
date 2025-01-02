@@ -1,0 +1,41 @@
+.dark-theme {
+    --bg-color:#222831;
+    --text-color:#EEEEEE;
+    --border-color:#31363F;
+    --chart-grid-color:#76ABAE;
+}
+
+body.dark-theme {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.dark-theme .item-info {
+    color: #fff;
+}
+
+.dark-theme .price-stats {
+    color: #bbb;
+}
+
+.dark-theme .lowest-info {
+    color: #ff6b6b;
+}
+
+.dark-theme .price-info {
+    background: rgba(76, 175, 80, 0.15);
+}
+
+.dark-theme .lowest-date {
+    color: #bbb;
+}
+
+.dark-theme .time-range-select {
+    background: #2d2d2d;
+    color: #fff;
+    border-color: #444;
+}
+
+.dark-theme .time-range-select:hover {
+    border-color: #4CAF50;
+}
