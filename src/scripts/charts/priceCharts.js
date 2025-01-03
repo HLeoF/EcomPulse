@@ -4,8 +4,31 @@ class PriceChart {
         this.fullData = null;
         this.initChart();
         this.initTimeRangeSelector();
-        this.fetchData();
     }
+
+    async catchURL(url) {
+        try{
+            const response = await fetch('http://localhost:2233/catchUrl',{
+                method: 'POST',
+                headers: {
+                    'Content-Type':'application/json',
+                },
+                body:JSON.stringify({url:url})
+            });
+
+            if (!response.ok){
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+            this.fullData = await response.json();
+            this.updateProductInfo(this.fullData)
+            this.updateChartData()
+        } catch (error) {
+            if(this.fullData == null){
+                alert(`暂时无法获取商品数据，请您尝试其他产品`);
+            }
+        }
+    }
+
 
     initChart() {
         const ctx = document.getElementById('priceChart').getContext('2d');
@@ -32,7 +55,7 @@ class PriceChart {
                     tooltip: {
                         callbacks: {
                             label: function(context) {
-                                return `¥${context.parsed.y}`;
+                                return `¥${context.parsed.y.toFixed(2)}`;
                             }
                         }
                     }
@@ -48,7 +71,7 @@ class PriceChart {
                             minRotation: 60,  // 设置为 60 度
                             autoSkip: true,   // 自动跳过重叠的标签
                             font: {
-                                size: 11
+                                size: 10
                             }
                         }
                     },
@@ -59,7 +82,7 @@ class PriceChart {
                         },
                         ticks: {
                             callback: function(value) {
-                                return '¥' + value;
+                                return '¥' + value.toFixed(2);
                             }
                         }
                     }
@@ -73,22 +96,6 @@ class PriceChart {
         selector.addEventListener('change', () => {
             this.updateChartData();
         });
-    }
-
-    async fetchData() {
-        try {
-            const response = await fetch('http://localhost:5000/get-list');
-            this.fullData = await response.json();
-            
-            // 更新商品信息
-            this.updateProductInfo(this.fullData);
-            
-            // 更新图表数据
-            this.updateChartData();
-
-        } catch (error) {
-            console.error('Error fetching price data:', error);
-        }
     }
 
     updateChartData() {

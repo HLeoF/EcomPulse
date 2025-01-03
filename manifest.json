@@ -15,9 +15,11 @@
     "background":{
         "service_worker":"background.js"
     },
-    "permissions":["storage","activeTab"],
+    "permissions":["storage","activeTab","tabs","notifications"],
     "host_permissions": [
-        "http://localhost:*/"
+        "http://localhost:*/",
+        "https://*.taobao.com/*",
+        "https://*.tmall.com/*"
     ],
     "content_security_policy": {
         "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://cdn.jsdelivr.net;"
