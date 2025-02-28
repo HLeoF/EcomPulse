@@ -9,21 +9,23 @@ EcomPulse 是一款基于Chrome浏览器的智能购物助手插件， 旨在帮
         <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=比价全网，智省每一分!&center=true&size=27" />
         </a>
     </div>
+</div>
 
 
 ## 主要工具栈
+<div align="center">
 <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/html.webp">
 <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/cssgif.webp">
 <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/vscode.webp">
 <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/python.webp">
 <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/js.webp">
 <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/github.webp">
-
+</div>
 ## 使用教程
 
 
 ## Demo
-
+<div align="center">
 <img src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/icon.png" /></div>
 </div>
 
