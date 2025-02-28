@@ -9,7 +9,7 @@
     <div class="container">
         <header>
             <div class="logo-container">
-                <img src="../images/avocado.png" alt="EcomPulse Logo" class="logo-icon">
+                <img src="../images/payment.png alt="EcomPulse Logo" class="logo-icon">
                 <h1>EcomPulse</h1>
             </div>
             <div class="theme-toggle">
@@ -43,10 +43,31 @@
                 <canvas id="priceChart"></canvas>
             </div>
         </section>
+
+        <section class="price-comparison">
+            <h2 class="section-title">全网比价</h2>
+            <div class="gallery-container">
+                <div class="gallery-wrapper">
+                    <div class="gallery">
+                        <!-- 价格卡片将由 JavaScript 动态生成 -->
+                    </div>
+                </div>
+                <div class="scroll-buttons">
+                    <button class="scroll-left">❮</button>
+                    <button class="scroll-right">❯</button>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="dots">
+                        <!-- 滚动指示点将由 JavaScript 动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script src="../node_modules/chart.js/dist/chart.js"></script>
     <script src="scripts/themeManager.js"></script>
+    <script src="scripts/charts/PriceComparison.js"></script>
     <script src="scripts/charts/priceCharts.js"></script>
     <script src="scripts/popup.js"></script>
 </body>

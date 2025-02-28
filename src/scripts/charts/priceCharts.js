@@ -2,9 +2,40 @@ class PriceChart {
     constructor() {
         this.chart = null;
         this.fullData = null;
+        this.priceComparison = new PriceComparison();
         this.initChart();
         this.initTimeRangeSelector();
-        this.fetchData();
+    }
+    
+    async submitUrl(url) {
+        try {
+            const response = await fetch('http://localhost:5000/submit-url', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: url })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            this.fullData = await response.json();
+            this.updateProductInfo(this.fullData['history_price']);
+            this.updateChartData();
+
+            if(this.fullData['lowest_price']){
+                this.priceComparison.updatePriceCards(this.fullData['lowest_price'])
+            }
+
+        } catch (error) {
+            console.error('Error submitting URL:', error)
+            if (this.fullData == null) {
+                 // 使用 alert 显示错误信息
+                alert('无法获取商品数据，请稍后重试');
+            }
+        }
     }
 
     initChart() {
@@ -32,7 +63,7 @@ class PriceChart {
                     tooltip: {
                         callbacks: {
                             label: function(context) {
-                                return `¥${context.parsed.y}`;
+                                return `¥${context.parsed.y.toFixed(2)}`;
                             }
                         }
                     }
@@ -44,9 +75,9 @@ class PriceChart {
                             display: false
                         },
                         ticks: {
-                            maxRotation: 60,  // 设置为 60 度
-                            minRotation: 60,  // 设置为 60 度
-                            autoSkip: true,   // 自动跳过重叠的标签
+                            maxRotation: 60,
+                            minRotation: 60,
+                            autoSkip: true,
                             font: {
                                 size: 11
                             }
@@ -59,7 +90,7 @@ class PriceChart {
                         },
                         ticks: {
                             callback: function(value) {
-                                return '¥' + value;
+                                return '¥' + value.toFixed(2);
                             }
                         }
                     }
@@ -75,31 +106,15 @@ class PriceChart {
         });
     }
 
-    async fetchData() {
-        try {
-            const response = await fetch('http://localhost:5000/get-list');
-            this.fullData = await response.json();
-            
-            // 更新商品信息
-            this.updateProductInfo(this.fullData);
-            
-            // 更新图表数据
-            this.updateChartData();
-
-        } catch (error) {
-            console.error('Error fetching price data:', error);
-        }
-    }
-
     updateChartData() {
-        if (!this.fullData) return;
+        if (!this.fullData['history_price']) return;
 
         const days = parseInt(document.getElementById('timeRange').value);
         const currentDate = new Date();
         const cutoffDate = new Date(currentDate.setDate(currentDate.getDate() - days));
 
         // 过滤数据
-        const filteredData = this.filterDataByDate(this.fullData, cutoffDate);
+        const filteredData = this.filterDataByDate(this.fullData['history_price'], cutoffDate);
 
         // 格式化日期
         const formattedDates = filteredData.dates.map(date => {

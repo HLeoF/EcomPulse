@@ -4,13 +4,13 @@
     "version":"1.0.0",
     "description":"Track and Display e-commerce product prices and reviews",
     "icons":{
-        "16":"images/avocado.png",
-        "48":"images/avocado.png",
-        "128":"images/avocado.png"
+        "16":"images/payment.png",
+        "48":"images/payment.png",
+        "128":"images/payment.png"
     },
     "action":{
         "default_popup":"src/popup.html",
-        "default_icon":"images/avocado.png"
+        "default_icon":"images/payment.png"
     },
     "background":{
         "service_worker":"background.js"

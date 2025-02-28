@@ -39,3 +39,23 @@ body.dark-theme {
 .dark-theme .time-range-select:hover {
     border-color: #4CAF50;
 }
+
+.dark-theme .price-card {
+    background: #2d2d2d;
+}
+
+.dark-theme .platform-name {
+    color: #bbb;
+}
+
+.dark-theme .price {
+    color: #ff6b6b;
+}
+
+.dark-theme .dot {
+    background: #555;
+}
+
+.dark-theme .dot.active {
+    background: #4CAF50;
+}
