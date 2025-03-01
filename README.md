@@ -44,7 +44,7 @@ git clone https://github.com/HLeoF/EcomPulse.git
 
 ## Demo
 
-
+https://github.com/user-attachments/assets/e4fd23dd-3576-4ad2-b580-5507ab589810
 
 <div align="center">
 <img src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/icon.png" /></div>
@@ -52,5 +52,5 @@ git clone https://github.com/HLeoF/EcomPulse.git
 
 
 
-https://github.com/user-attachments/assets/e4fd23dd-3576-4ad2-b580-5507ab589810
+
 
